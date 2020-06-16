@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <!--         android:minHeight="95dp"    这个是最重要的。如果不加 recyclerview里的item会显示不全。
+                      app:contentScrim="@color/white"  顶部收缩时候的颜色
+                      app:statusBarScrim="@android:color/transparent" 如果不加会使用系统默认的颜色 加这个之前还需要设置状态栏颜色 否则无效
+        -->
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/white"
+            app:expandedTitleMarginStart="20dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@android:color/transparent">
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_collapseMode="parallax"-->
+            <!--app:layout_collapseParallaxMultiplier="0.7"-->
+            <!--android:orientation="vertical">-->
+
+            <com.stx.xhb.xbanner.XBanner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200.0dip"
+                android:layout_marginTop="@dimen/dp_50"
+                app:AutoPlayTime="3000"
+                app:pointsContainerBackground="#44AAAAAA"
+                app:pointsPosition="RIGHT"
+                app:tipTextColor="#FFFFFFFF"
+                app:tipTextSize="16.0sp"
+                />
+
+            <!--</LinearLayout>-->
+
+            <!--         android:minHeight="95dp"  android:layout_height="@dimen/dp_95"   这个 = title的高度 + tablayout的高度 不需要title就设置成 45dp  -->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:minHeight="?attr/actionBarSize"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/mianbgckground">
+
+                    <TextView
+                        android:id="@+id/iv_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="S"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <EditText
+                        android:id="@+id/iv_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_logs"
+                        android:layout_toRightOf="@id/iv_logo"
+                        android:background="@drawable/rounded_edittext"
+                        android:focusable="false"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <ImageView
+                        android:id="@+id/iv_logs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/scan_white"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/magic_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/ll"
+            android:layout_gravity="bottom"
+            android:background="@color/cardview_dark_background" />
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- app:layout_behavior="@string/appbar_scrolling_view_behavior" 这个必加不要问为什么 问了就是不知道 -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>

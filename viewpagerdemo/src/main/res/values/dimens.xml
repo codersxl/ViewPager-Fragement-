@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_95">95dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="common_navigator_height">40dp</dimen>
+    <dimen name="dp8">18dp</dimen>
+</resources>
